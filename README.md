@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @jaynagrecha
 - 👀 I’m interested in Cyber Security.
-- 🌱 I’m currently learning the defence part of cyber security as well as Threat Intelligence, like - SOC, Shuffle, Wazuh, Splunk, OSINT tools, MISP, Cortex, etc.
+- 🌱 I’m currently learning the defence part of cyber security as well as Threat Intelligence, like - SOC, SEIM, SOAR, OSINT tools, etc. These tools are a major part of my learning journey - Wazuh, Filebeat, Elastic Search, Kibana, Shuffle, TheHive, Splunk, MISP, Cortex and Suricata.
 - 📫 How to reach me - jaynagrecha98@gmail.com
 
 <!---
