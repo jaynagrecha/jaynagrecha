@@ -2,7 +2,7 @@
   <img
     width="100%"
     alt="Jay Nagrecha — Cyber Defense Operations"
-    src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/dark.svg"
+    src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/light.svg"
   >
 </p>
 
