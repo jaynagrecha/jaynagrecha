@@ -1,14 +1,16 @@
 {
   "username": "jaynagrecha",
   "repositories": 13,
+  "repo_label": "PUBLIC REPOS",
+  "repo_scope": "public repositories only",
   "followers": 2,
   "contributions": 159,
   "total_stars": 1,
-  "latest_repo": "jaynagrecha",
-  "updated_at": "2026-07-12 22:41 UTC",
+  "latest_repo": "NetraBharat",
+  "updated_at": "2026-07-12 23:02 UTC",
   "recent_events": [
-    "22:41 Pushed 0 commits to jaynagrecha",
     "22:13 Created branch in NetraBharat",
-    "22:01 Pushed 0 commits to jaynagrecha"
+    "16:36 Pull request merged in RepoTriage",
+    "16:36 Pull request opened in RepoTriage"
   ]
 }
