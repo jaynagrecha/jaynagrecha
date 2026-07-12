@@ -1,208 +1,182 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
- width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="1400" height="940" viewBox="0 0 1400 940" role="img" aria-labelledby="title desc">
 <title id="title">Jay Nagrecha — Cyber Defense Operations</title>
-<desc id="desc">An animated cyber defense operations dashboard with operator identity, capabilities, active projects, telemetry and intelligence feed.</desc>
+<desc id="desc">A large light-mode cyber defense operations dashboard.</desc>
+
 <defs>
   <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#00B8D9"/>
-    <stop offset=".55" stop-color="#00A86B"/>
-    <stop offset="1" stop-color="#7C3AED"/>
+    <stop offset="0" stop-color="#06B6D4"/>
+    <stop offset=".5" stop-color="#10B981"/>
+    <stop offset="1" stop-color="#8B5CF6"/>
   </linearGradient>
+
   <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#00B8D9"/>
-    <stop offset=".55" stop-color="#00A86B"/>
-    <stop offset="1" stop-color="#7C3AED"/>
+    <stop offset="0" stop-color="#06B6D4"/>
+    <stop offset=".52" stop-color="#10B981"/>
+    <stop offset="1" stop-color="#8B5CF6"/>
   </linearGradient>
+
   <radialGradient id="radarGlow">
-    <stop offset="0" stop-color="#00A86B" stop-opacity=".34"/>
-    <stop offset="1" stop-color="#00A86B" stop-opacity="0"/>
+    <stop offset="0" stop-color="#10B981" stop-opacity=".30"/>
+    <stop offset="1" stop-color="#10B981" stop-opacity="0"/>
   </radialGradient>
-  <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-    <path d="M42 0H0V42" fill="none" stroke="#9FC7D8" stroke-width="1" opacity=".38"/>
+
+  <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+    <path d="M46 0H0V46" fill="none" stroke="#C9E0EA" stroke-width="1" opacity=".42"/>
   </pattern>
+
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#4B6475" flood-opacity=".18"/>
+  </filter>
+
   <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feGaussianBlur stdDeviation="4" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#000" flood-opacity="0.15"/>
-  </filter>
-  <clipPath id="bootBar"><rect x="270" y="436" width="0" height="8" rx="4">
-    <animate attributeName="width" values="0;660" dur="2.5s" begin=".25s" fill="freeze"/>
-  </rect></clipPath>
+
   <style>
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-    .title { font: 700 22px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#132033; letter-spacing:1.2px; }
-    .h { font: 700 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#00B8D9; letter-spacing:2.2px; }
-    .label { font: 600 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#64748B; letter-spacing:1.3px; }
-    .value { font: 600 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#132033; }
-    .small { font: 500 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#64748B; }
-    .tiny { font: 500 9px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#64748B; letter-spacing:1.2px; }
-    .green { fill:#00A86B; }
-    .cyan { fill:#00B8D9; }
+    .title { font: 800 26px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#122033; letter-spacing:1.4px; }
+    .h { font: 800 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#0891B2; letter-spacing:2.3px; }
+    .label { font: 700 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#6B7C90; letter-spacing:1.4px; }
+    .value { font: 700 15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#172033; }
+    .small { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#6B7C90; }
+    .tiny { font: 600 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#728197; letter-spacing:1.2px; }
+    .green { fill:#059669; }
+    .cyan { fill:#0891B2; }
     .violet { fill:#7C3AED; }
-    .amber { fill:#D97706; }
-    a:hover .hot { stroke:#00B8D9; stroke-width:2; filter:url(#glow); }
   </style>
 </defs>
 
-<rect width="1200" height="760" rx="22" fill="#F6F8FC"/>
-<rect width="1200" height="760" rx="22" fill="url(#grid)" opacity=".7"/>
-<rect x="3" y="3" width="1194" height="754" rx="20" fill="none" stroke="url(#edge)" stroke-width="2">
-  <animate attributeName="opacity" values=".55;1;.55" dur="5s" repeatCount="indefinite"/>
-</rect>
+<rect width="1400" height="940" rx="26" fill="#F7FAFD"/>
+<rect width="1400" height="940" rx="26" fill="url(#grid)"/>
+<rect x="4" y="4" width="1392" height="932" rx="23" fill="none" stroke="url(#edge)" stroke-width="2.5"/>
 
-<!-- Boot screen: separate centered lines, never overlapping -->
-<g id="boot">
-  <animate attributeName="opacity" values="1;1;0" keyTimes="0;.78;1" dur="3.4s" fill="freeze"/>
-  <rect x="190" y="128" width="820" height="510" rx="18" fill="#FFFFFF" stroke="#B9D7E6" filter="url(#softShadow)"/>
-  <text x="600" y="184" text-anchor="middle" class="h">CYBER DEFENSE OPERATIONS // SECURE BOOT</text>
-  <text x="255" y="246" class="label">[01] OPERATOR IDENTITY</text>
-  <text x="940" y="246" text-anchor="end" class="value green">VERIFIED</text>
-  <text x="255" y="286" class="label">[02] DETECTION ENGINE</text>
-  <text x="940" y="286" text-anchor="end" class="value green">ONLINE</text>
-  <text x="255" y="326" class="label">[03] THREAT INTELLIGENCE</text>
-  <text x="940" y="326" text-anchor="end" class="value green">SYNCHRONIZED</text>
-  <text x="255" y="366" class="label">[04] CONTROL VALIDATION</text>
-  <text x="940" y="366" text-anchor="end" class="value green">READY</text>
-  <rect x="270" y="436" width="660" height="8" rx="4" fill="#B9D7E6"/>
-  <rect x="270" y="436" width="660" height="8" rx="4" fill="url(#bar)" clip-path="url(#bootBar)"/>
-  <text x="600" y="490" text-anchor="middle" class="title">ACCESS GRANTED</text>
-  <text x="600" y="528" text-anchor="middle" class="small">INITIALIZING DEFENSE GRID...</text>
-  <rect x="595" y="555" width="10" height="18" fill="#00B8D9">
-    <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
-  </rect>
-</g>
+<!-- Header -->
+<circle cx="34" cy="34" r="6" fill="#FB7185"/>
+<circle cx="56" cy="34" r="6" fill="#FBBF24"/>
+<circle cx="78" cy="34" r="6" fill="#34D399"/>
+<text x="700" y="39" text-anchor="middle" class="tiny">JAY NAGRECHA // CYBER DEFENSE OPERATIONS // SECURE SESSION</text>
+<circle cx="1304" cy="34" r="5" fill="#10B981" filter="url(#glow)">
+  <animate attributeName="opacity" values="1;.25;1" dur="1.2s" repeatCount="indefinite"/>
+</circle>
+<text x="1322" y="39" class="h">LIVE</text>
+<path d="M28 62H1372" stroke="#BFD9E6"/>
 
-<!-- Main dashboard -->
-<g id="dash" opacity="0">
-  <animate attributeName="opacity" values="0;0;1" keyTimes="0;.82;1" dur="3.8s" fill="freeze"/>
+<!-- Left identity panel -->
+<rect x="30" y="84" width="398" height="590" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
+<text x="54" y="118" class="h">IDENTITY.CORE // VERIFIED</text>
+<path d="M54 132H404" stroke="#C6DCE7"/>
 
-  <!-- Header -->
-  <circle cx="30" cy="28" r="5" fill="#DC2626"/><circle cx="48" cy="28" r="5" fill="#D97706"/><circle cx="66" cy="28" r="5" fill="#00A86B"/>
-  <text x="600" y="32" text-anchor="middle" class="tiny">JAY NAGRECHA // CYBER DEFENSE OPERATIONS // SECURE SESSION</text>
-  <circle cx="1094" cy="28" r="5" fill="#00A86B" filter="url(#glow)">
-    <animate attributeName="opacity" values="1;.25;1" dur="1.2s" repeatCount="indefinite"/>
+<g transform="translate(229 304)">
+  <circle r="130" fill="none" stroke="#BFD9E6"/>
+  <circle r="98" fill="none" stroke="#BFD9E6"/>
+  <circle r="66" fill="none" stroke="#BFD9E6"/>
+  <path d="M-130 0H130M0-130V130M-92-92L92 92M92-92L-92 92" stroke="#C5DDE8"/>
+  <path d="M0 0 L130 0 A130 130 0 0 1 82 99 Z" fill="url(#radarGlow)">
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4.5s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="-76" cy="-38" r="5" fill="#06B6D4" filter="url(#glow)">
+    <animate attributeName="opacity" values=".2;1;.2" dur="2.1s" repeatCount="indefinite"/>
   </circle>
-  <text x="1110" y="32" class="h">LIVE</text>
-  <path d="M24 52H1176" stroke="#B9D7E6"/>
+  <circle cx="88" cy="-21" r="5" fill="#10B981" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;.2;1" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="51" cy="86" r="5" fill="#8B5CF6" filter="url(#glow)">
+    <animate attributeName="opacity" values=".2;1;.2" dur="3.1s" repeatCount="indefinite"/>
+  </circle>
 
-  <!-- Identity panel -->
-  <rect x="28" y="72" width="360" height="486" rx="18" fill="#FFFFFF" stroke="#B9D7E6" filter="url(#softShadow)"/>
-  <text x="48" y="100" class="h">IDENTITY.CORE // VERIFIED</text>
-  <path d="M48 114H368" stroke="#B9D7E6"/>
-
-  <!-- Radar -->
-  <g transform="translate(208 240)">
-    <circle r="110" fill="none" stroke="#B9D7E6"/>
-    <circle r="82" fill="none" stroke="#B9D7E6"/>
-    <circle r="54" fill="none" stroke="#B9D7E6"/>
-    <path d="M-110 0H110M0-110V110M-78-78L78 78M78-78L-78 78" stroke="#B9D7E6" opacity=".75"/>
-    <path d="M0 0 L110 0 A110 110 0 0 1 70 84 Z" fill="url(#radarGlow)">
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
-    </path>
-    <circle cx="-62" cy="-32" r="4" fill="#00B8D9" filter="url(#glow)">
-      <animate attributeName="opacity" values=".2;1;.2" dur="2.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="75" cy="-18" r="4" fill="#00A86B" filter="url(#glow)">
-      <animate attributeName="opacity" values="1;.2;1" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="42" cy="72" r="4" fill="#7C3AED" filter="url(#glow)">
-      <animate attributeName="opacity" values=".2;1;.2" dur="3.1s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M0-60 58-34V20C58 64 28 88 0 101-28 88-58 64-58 20V-34Z" fill="#F0F5FA" stroke="url(#edge)" stroke-width="2" filter="url(#glow)"/>
-    <text x="0" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="46" fill="#132033">JN</text>
-  </g>
-
-  <text x="208" y="390" text-anchor="middle" class="title">JAY NAGRECHA</text>
-  <text x="208" y="418" text-anchor="middle" class="h">CYBER DEFENSE • PURPLE TEAM • BUILDER</text>
-
-  <rect x="46" y="444" width="324" height="92" rx="12" fill="#F0F5FA" stroke="#B9D7E6"/>
-  <text x="62" y="468" class="label">OPERATOR DIRECTIVE</text>
-  <text x="62" y="494" class="value">BUILD WHAT DOES NOT EXIST.</text>
-  <text x="62" y="518" class="small green">DETECT • HUNT • VALIDATE • AUTOMATE</text>
-
-  <!-- Main info panel -->
-  <rect x="408" y="72" width="764" height="486" rx="18" fill="#FFFFFF" stroke="#B9D7E6" filter="url(#softShadow)"/>
-  <text x="430" y="100" class="h">DEFENSE.INTELLIGENCE // OPERATOR JN-01</text>
-  <path d="M430 114H1150" stroke="#B9D7E6"/>
-
-  <text x="430" y="142" class="label">SUBJECT</text><text x="566" y="142" class="value">Jay Nagrecha</text>
-  <text x="430" y="170" class="label">ROLE</text><text x="566" y="170" class="value">Cyber Defense &amp; Purple Team Analyst</text>
-  <text x="430" y="198" class="label">FOCUS</text><text x="566" y="198" class="value">Detection Engineering • Threat Hunting • OSINT</text>
-  <text x="430" y="226" class="label">STATUS</text><text x="566" y="226" class="value green">BUILDING • TESTING • DETECTING • SHIPPING</text>
-
-  <text x="430" y="266" class="h violet">OPERATING MODES</text>
-  <path d="M430 278H1150" stroke="#B9D7E6"/>
-
-  <!-- Capability bars -->
-  <g>
-    <text x="430" y="308" class="label">DETECTION</text>
-    <rect x="566" y="298" width="220" height="8" rx="4" fill="#B9D7E6"/>
-    <rect x="566" y="298" width="205" height="8" rx="4" fill="url(#bar)"/>
-    <text x="810" y="308" class="value">Sigma • YARA • IOC Correlation</text>
-
-    <text x="430" y="340" class="label">VALIDATION</text>
-    <rect x="566" y="330" width="220" height="8" rx="4" fill="#B9D7E6"/>
-    <rect x="566" y="330" width="198" height="8" rx="4" fill="url(#bar)"/>
-    <text x="810" y="340" class="value">MITRE ATT&amp;CK • SafeBreach • Control Testing</text>
-
-    <text x="430" y="372" class="label">ENDPOINT</text>
-    <rect x="566" y="362" width="220" height="8" rx="4" fill="#B9D7E6"/>
-    <rect x="566" y="362" width="190" height="8" rx="4" fill="url(#bar)"/>
-    <text x="810" y="372" class="value">Microsoft Defender • CrowdStrike • Tanium</text>
-
-    <text x="430" y="404" class="label">AUTOMATION</text>
-    <rect x="566" y="394" width="220" height="8" rx="4" fill="#B9D7E6"/>
-    <rect x="566" y="394" width="182" height="8" rx="4" fill="url(#bar)"/>
-    <text x="810" y="404" class="value">Python • PowerShell • XSOAR • REST APIs</text>
-
-    <text x="430" y="436" class="label">INTELLIGENCE</text>
-    <rect x="566" y="426" width="220" height="8" rx="4" fill="#B9D7E6"/>
-    <rect x="566" y="426" width="208" height="8" rx="4" fill="url(#bar)"/>
-    <text x="810" y="436" class="value">Threat Hunting • OSINT • GitHub Intelligence</text>
-  </g>
-
-  <text x="430" y="468" class="h green">CURRENT OPERATIONS</text>
-  <path d="M430 478H1150" stroke="#B9D7E6"/>
-
-  <!-- Clickable project cards -->
-  <a xlink:href="https://github.com/jaynagrecha/RepoTrace" target="_blank">
-    <g><rect class="hot" x="430" y="492" width="170" height="48" rx="10" fill="#F0F5FA" stroke="#B9D7E6"/>
-    <circle cx="446" cy="508" r="4" fill="#00A86B"/><text x="458" y="512" class="value">RepoTrace</text>
-    <text x="446" y="530" class="tiny">THREAT INTELLIGENCE</text></g>
-  </a>
-  <a xlink:href="https://github.com/jaynagrecha/RepoTriage" target="_blank">
-    <g><rect class="hot" x="612" y="492" width="170" height="48" rx="10" fill="#F0F5FA" stroke="#B9D7E6"/>
-    <circle cx="628" cy="508" r="4" fill="#00A86B"/><text x="640" y="512" class="value">RepoTriage</text>
-    <text x="628" y="530" class="tiny">MALWARE TRIAGE</text></g>
-  </a>
-  <a xlink:href="https://github.com/jaynagrecha/NetraBharat" target="_blank">
-    <g><rect class="hot" x="794" y="492" width="170" height="48" rx="10" fill="#F0F5FA" stroke="#B9D7E6"/>
-    <circle cx="810" cy="508" r="4" fill="#7C3AED"/><text x="822" y="512" class="value">NetraBharat</text>
-    <text x="810" y="530" class="tiny">INFRA INTELLIGENCE</text></g>
-  </a>
-  <a xlink:href="https://github.com/jaynagrecha" target="_blank">
-    <g><rect class="hot" x="976" y="492" width="174" height="48" rx="10" fill="#F0F5FA" stroke="#B9D7E6"/>
-    <circle cx="992" cy="508" r="4" fill="#7C3AED"/><text x="1004" y="512" class="value">FOX</text>
-    <text x="992" y="530" class="tiny">EXPERIMENTAL OS</text></g>
-  </a>
-
-  <!-- Bottom telemetry panel -->
-  <rect x="28" y="578" width="1144" height="150" rx="18" fill="#FFFFFF" stroke="#B9D7E6" filter="url(#softShadow)"/>
-  <text x="48" y="606" class="h">INTELLIGENCE.FEED // STABLE EVENT LOG</text>
-  <path d="M48 618H1152" stroke="#B9D7E6"/>
-
-  <!-- Separate rows eliminate the browser repaint overlap bug -->
-  <circle cx="56" cy="646" r="4" fill="#00A86B"/><text x="72" y="650" class="small">[READY] Defense operations console initialized.</text>
-  <circle cx="56" cy="674" r="4" fill="#00B8D9"/><text x="72" y="678" class="small">[SYNC ] RepoTrace intelligence pipeline connected.</text>
-  <circle cx="56" cy="702" r="4" fill="#7C3AED"/><text x="72" y="706" class="small">[HUNT ] Signal correlation active. Noise suppression enabled.</text>
-
-  <text x="760" y="650" class="label">SYSTEM</text><text x="842" y="650" class="value green">NOMINAL</text>
-  <text x="760" y="678" class="label">MISSION</text><text x="842" y="678" class="value">BUILD WHAT DOES NOT EXIST</text>
-  <text x="760" y="706" class="label">SHELL</text><text x="842" y="706" class="value cyan">root@defense-grid:~$</text>
-  <rect x="1068" y="692" width="8" height="15" fill="#00B8D9">
-    <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
-  </rect>
+  <path d="M0-72 68-40V24C68 77 33 106 0 122-33 106-68 77-68 24V-40Z"
+        fill="#F2F7FB" stroke="url(#edge)" stroke-width="3" filter="url(#glow)"/>
+  <text x="0" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="56" fill="#172033">JN</text>
 </g>
+
+<text x="229" y="492" text-anchor="middle" class="title">JAY NAGRECHA</text>
+<text x="229" y="525" text-anchor="middle" class="h">CYBER DEFENSE • PURPLE TEAM • BUILDER</text>
+
+<rect x="54" y="558" width="350" height="90" rx="13" fill="#F2F8FB" stroke="#C5DDE8"/>
+<text x="72" y="586" class="label">OPERATOR DIRECTIVE</text>
+<text x="72" y="616" class="value">BUILD WHAT DOES NOT EXIST.</text>
+<text x="72" y="640" class="small green">DETECT • HUNT • VALIDATE • AUTOMATE</text>
+
+<!-- Main profile panel -->
+<rect x="452" y="84" width="918" height="590" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
+<text x="478" y="118" class="h">DEFENSE.INTELLIGENCE // OPERATOR JN-01</text>
+<path d="M478 132H1344" stroke="#C6DCE7"/>
+
+<text x="478" y="170" class="label">SUBJECT</text>
+<text x="640" y="170" class="value">Jay Nagrecha</text>
+
+<text x="478" y="208" class="label">ROLE</text>
+<text x="640" y="208" class="value">Cyber Defense &amp; Purple Team Analyst</text>
+
+<text x="478" y="246" class="label">FOCUS</text>
+<text x="640" y="246" class="value">Detection Engineering • Threat Hunting • OSINT</text>
+
+<text x="478" y="284" class="label">STATUS</text>
+<text x="640" y="284" class="value green">BUILDING • TESTING • DETECTING • SHIPPING</text>
+
+<text x="478" y="334" class="h violet">OPERATING MODES</text>
+<path d="M478 348H1344" stroke="#C6DCE7"/>
+
+<g>
+  <text x="478" y="388" class="label">DETECTION</text>
+  <rect x="640" y="376" width="300" height="10" rx="5" fill="#D9EAF2"/>
+  <rect x="640" y="376" width="276" height="10" rx="5" fill="url(#bar)"/>
+  <text x="970" y="389" class="value">Sigma • YARA • IOC Correlation</text>
+
+  <text x="478" y="432" class="label">VALIDATION</text>
+  <rect x="640" y="420" width="300" height="10" rx="5" fill="#D9EAF2"/>
+  <rect x="640" y="420" width="265" height="10" rx="5" fill="url(#bar)"/>
+  <text x="970" y="433" class="value">MITRE ATT&amp;CK • SafeBreach • Control Testing</text>
+
+  <text x="478" y="476" class="label">ENDPOINT</text>
+  <rect x="640" y="464" width="300" height="10" rx="5" fill="#D9EAF2"/>
+  <rect x="640" y="464" width="252" height="10" rx="5" fill="url(#bar)"/>
+  <text x="970" y="477" class="value">Microsoft Defender • CrowdStrike • Tanium</text>
+
+  <text x="478" y="520" class="label">AUTOMATION</text>
+  <rect x="640" y="508" width="300" height="10" rx="5" fill="#D9EAF2"/>
+  <rect x="640" y="508" width="242" height="10" rx="5" fill="url(#bar)"/>
+  <text x="970" y="521" class="value">Python • PowerShell • XSOAR • REST APIs</text>
+
+  <text x="478" y="564" class="label">INTELLIGENCE</text>
+  <rect x="640" y="552" width="300" height="10" rx="5" fill="#D9EAF2"/>
+  <rect x="640" y="552" width="282" height="10" rx="5" fill="url(#bar)"/>
+  <text x="970" y="565" class="value">Threat Hunting • OSINT • GitHub Intelligence</text>
+</g>
+
+<text x="478" y="612" class="h green">PROJECT INDEX // CLICKABLE MODULES BELOW</text>
+<path d="M478 624H1344" stroke="#C6DCE7"/>
+
+<rect x="478" y="640" width="866" height="58" rx="11" fill="#F2F8FB" stroke="#C5DDE8"/>
+<circle cx="500" cy="669" r="5" fill="#10B981"/>
+<text x="520" y="674" class="value">Open the interactive project cards directly beneath this dashboard.</text>
+
+<!-- Larger lower section -->
+<rect x="30" y="704" width="1340" height="206" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
+<text x="54" y="738" class="h">INTELLIGENCE.FEED // OPERATIONAL TELEMETRY</text>
+<path d="M54 752H1346" stroke="#C6DCE7"/>
+
+<circle cx="62" cy="790" r="5" fill="#10B981"/>
+<text x="82" y="795" class="value">[READY] Defense operations console initialized.</text>
+
+<circle cx="62" cy="834" r="5" fill="#06B6D4"/>
+<text x="82" y="839" class="value">[SYNC ] RepoTrace intelligence pipeline connected.</text>
+
+<circle cx="62" cy="878" r="5" fill="#8B5CF6"/>
+<text x="82" y="883" class="value">[HUNT ] Signal correlation active. Noise suppression enabled.</text>
+
+<text x="860" y="795" class="label">SYSTEM</text>
+<text x="960" y="795" class="value green">NOMINAL</text>
+
+<text x="860" y="839" class="label">MISSION</text>
+<text x="960" y="839" class="value">BUILD WHAT DOES NOT EXIST</text>
+
+<text x="860" y="883" class="label">SHELL</text>
+<text x="960" y="883" class="value cyan">root@defense-grid:~$</text>
+
+<rect x="1240" y="868" width="9" height="17" fill="#0891B2">
+  <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
+</rect>
 </svg>

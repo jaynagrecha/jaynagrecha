@@ -7,25 +7,29 @@
 
 <h2 align="center">Active Operations</h2>
 
-<table align="center">
+<table>
   <tr>
-    <td align="center">
-      <a href="https://github.com/jaynagrecha/RepoTrace"><b>RepoTrace</b></a><br>
-      GitHub threat-intelligence and repository intelligence platform
+    <td width="50%">
+      <a href="https://github.com/jaynagrecha/RepoTrace">
+        <img width="100%" alt="Open RepoTrace" src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/repotrace.svg">
+      </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/jaynagrecha/RepoTriage"><b>RepoTriage</b></a><br>
-      Repository-focused malware triage and IOC investigation
+    <td width="50%">
+      <a href="https://github.com/jaynagrecha/RepoTriage">
+        <img width="100%" alt="Open RepoTriage" src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/repotriage.svg">
+      </a>
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <a href="https://github.com/jaynagrecha/NetraBharat"><b>NetraBharat</b></a><br>
-      Infrastructure intelligence and defensive correlation grid
+    <td width="50%">
+      <a href="https://github.com/jaynagrecha/NetraBharat">
+        <img width="100%" alt="Open NetraBharat" src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/netrabharat.svg">
+      </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/jaynagrecha"><b>FOX</b></a><br>
-      Security-first experimental operating system
+    <td width="50%">
+      <a href="https://github.com/jaynagrecha">
+        <img width="100%" alt="Open FOX" src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/fox.svg">
+      </a>
     </td>
   </tr>
 </table>
