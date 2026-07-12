@@ -179,4 +179,103 @@
 <rect x="1240" y="868" width="9" height="17" fill="#0891B2">
   <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
 </rect>
+
+<!-- Extended secure boot overlay: ~9 seconds -->
+<g id="secure-boot" opacity="1">
+  <animate attributeName="opacity"
+           values="1;1;0"
+           keyTimes="0;0.90;1"
+           dur="9s"
+           fill="freeze"/>
+
+  <rect x="0" y="0" width="1400" height="940" rx="26" fill="#F7FAFD"/>
+  <rect x="0" y="0" width="1400" height="940" rx="26" fill="url(#grid)"/>
+  <rect x="4" y="4" width="1392" height="932" rx="23"
+        fill="none" stroke="url(#edge)" stroke-width="2.5"/>
+
+  <circle cx="34" cy="34" r="6" fill="#FB7185"/>
+  <circle cx="56" cy="34" r="6" fill="#FBBF24"/>
+  <circle cx="78" cy="34" r="6" fill="#34D399"/>
+  <text x="700" y="39" text-anchor="middle" class="tiny">
+    JAY NAGRECHA // CYBER DEFENSE OPERATIONS // SECURE BOOT
+  </text>
+
+  <rect x="240" y="132" width="920" height="666" rx="22"
+        fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
+
+  <text x="700" y="192" text-anchor="middle" class="h">
+    DEFENSE GRID INITIALIZATION
+  </text>
+  <text x="700" y="228" text-anchor="middle" class="small">
+    Authenticating operator and loading defensive capabilities
+  </text>
+  <path d="M300 254H1100" stroke="#C6DCE7"/>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin=".7s" fill="freeze"/>
+    <text x="318" y="304" class="label">[01] OPERATOR IDENTITY</text>
+    <text x="1080" y="304" text-anchor="end" class="value green">VERIFIED</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin="1.7s" fill="freeze"/>
+    <text x="318" y="354" class="label">[02] DETECTION ENGINE</text>
+    <text x="1080" y="354" text-anchor="end" class="value green">ONLINE</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin="2.7s" fill="freeze"/>
+    <text x="318" y="404" class="label">[03] THREAT INTELLIGENCE</text>
+    <text x="1080" y="404" text-anchor="end" class="value green">SYNCHRONIZED</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin="3.7s" fill="freeze"/>
+    <text x="318" y="454" class="label">[04] CONTROL VALIDATION</text>
+    <text x="1080" y="454" text-anchor="end" class="value green">READY</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin="4.7s" fill="freeze"/>
+    <text x="318" y="504" class="label">[05] AUTOMATION PIPELINE</text>
+    <text x="1080" y="504" text-anchor="end" class="value green">CONNECTED</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".35s" begin="5.7s" fill="freeze"/>
+    <text x="318" y="554" class="label">[06] PROJECT INDEX</text>
+    <text x="1080" y="554" text-anchor="end" class="value green">MOUNTED</text>
+  </g>
+
+  <rect x="318" y="612" width="764" height="12" rx="6" fill="#D9EAF2"/>
+  <rect x="318" y="612" width="0" height="12" rx="6" fill="url(#bar)">
+    <animate attributeName="width"
+             values="0;110;250;390;530;650;764"
+             keyTimes="0;.16;.34;.52;.70;.86;1"
+             dur="6.8s"
+             begin=".5s"
+             fill="freeze"/>
+  </rect>
+
+  <text x="700" y="662" text-anchor="middle" class="small">
+    Loading analyst workspace...
+  </text>
+
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur=".4s" begin="7.1s" fill="freeze"/>
+    <text x="700" y="716" text-anchor="middle" class="title">ACCESS GRANTED</text>
+    <text x="700" y="752" text-anchor="middle" class="h green">
+      DEFENSE OPERATIONS CONSOLE READY
+    </text>
+  </g>
+
+  <rect x="694" y="770" width="12" height="22" fill="#0891B2" opacity="0">
+    <animate attributeName="opacity"
+             values="0;1;0;1;0;1"
+             dur="1.2s"
+             begin="7.2s"
+             repeatCount="indefinite"/>
+  </rect>
+</g>
+
 </svg>
