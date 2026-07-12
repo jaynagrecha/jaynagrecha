@@ -25,31 +25,51 @@ jobs:
 
     steps:
       - name: Check out profile repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Generate live Fusion Center
+      - name: Refresh telemetry and push safely
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
-        run: python scripts/generate_profile.py
-
-      - name: Validate generated SVG
-        run: python -c "import xml.etree.ElementTree as ET; ET.parse('light.svg'); print('SVG valid')"
-
-      - name: Commit only when telemetry changed
+        shell: bash
         run: |
-          if git diff --quiet -- light.svg data/profile.json; then
-            echo "No profile telemetry changes."
-            exit 0
-          fi
+          set -euo pipefail
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add light.svg data/profile.json
-          git commit -m "chore(profile): refresh live telemetry"
-          git push
+
+          for attempt in 1 2 3; do
+            echo "Telemetry refresh attempt ${attempt}/3"
+
+            git fetch origin main
+            git reset --hard origin/main
+
+            python scripts/generate_profile.py
+            python -c "import xml.etree.ElementTree as ET; ET.parse('light.svg'); print('SVG valid')"
+
+            if git diff --quiet -- light.svg data/profile.json; then
+              echo "No profile telemetry changes."
+              exit 0
+            fi
+
+            git add light.svg data/profile.json
+            git commit -m "chore(profile): refresh live telemetry"
+
+            if git push origin HEAD:main; then
+              echo "Profile telemetry updated successfully."
+              exit 0
+            fi
+
+            echo "Remote main changed during this run; retrying..."
+            sleep $((attempt * 2))
+          done
+
+          echo "Unable to push telemetry after 3 attempts."
+          exit 1
