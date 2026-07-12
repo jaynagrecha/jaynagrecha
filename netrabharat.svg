@@ -9,10 +9,12 @@
   </filter>
 </defs>
 <rect x="4" y="4" width="652" height="142" rx="18" fill="#FFFFFF" stroke="url(#e)" stroke-width="2" filter="url(#s)"/>
-<circle cx="36" cy="38" r="7" fill="#8B5CF6"/>
+<circle cx="36" cy="38" r="7" fill="#8B5CF6">
+  <animate attributeName="opacity" values="1;.35;1" dur="1.7s" repeatCount="indefinite"/>
+</circle>
 <text x="58" y="45" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="21" font-weight="800" fill="#172033">NetraBharat</text>
 <text x="36" y="82" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" font-weight="600" fill="#66778A">Infrastructure intelligence and defensive correlation grid</text>
 <rect x="36" y="104" width="126" height="25" rx="12" fill="#EEF8F6"/>
-<text x="99" y="121" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" font-weight="800" fill="#059669">ACTIVE</text>
+<text x="99" y="121" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" font-weight="800" fill="#059669">BUILDING</text>
 <text x="622" y="121" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" font-weight="700" fill="#0891B2">OPEN REPOSITORY &#8594;</text>
 </svg>

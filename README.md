@@ -1,7 +1,7 @@
 <p align="center">
   <img
     width="100%"
-    alt="Jay Nagrecha — Cyber Defense Operations"
+    alt="Jay Nagrecha — Cyber Defense Fusion Center"
     src="https://raw.githubusercontent.com/jaynagrecha/jaynagrecha/main/light.svg">
 </p>
 
