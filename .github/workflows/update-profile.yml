@@ -35,6 +35,7 @@ jobs:
       - name: Generate live Fusion Center
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: python scripts/generate_profile.py
 
       - name: Validate generated SVG

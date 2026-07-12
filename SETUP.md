@@ -24,3 +24,19 @@ Live fields:
 
 `data/profile.json` is a last-known-good fallback. Temporary GitHub API errors therefore
 do not blank or corrupt the profile.
+
+## Repository count: public vs all owned
+
+Without an extra secret, GitHub Actions correctly displays **PUBLIC REPOS** because
+the built-in `GITHUB_TOKEN` cannot enumerate your other private repositories.
+
+To display the same total shown to you in GitHub's Repositories tab:
+
+1. Create a fine-grained personal access token with read access to repository metadata
+   for the repositories you want counted.
+2. Add it in this profile repository under:
+   **Settings → Secrets and variables → Actions → New repository secret**
+3. Name the secret exactly: `PROFILE_TOKEN`
+4. Run the workflow again.
+
+The dashboard label automatically changes from `PUBLIC REPOS` to `OWNED REPOS`.

@@ -64,16 +64,29 @@ Build what does not exist.
   <circle cx="78" cy="34" r="6" fill="#34D399"/>
   <text x="700" y="39" text-anchor="middle" class="tiny">JAY NAGRECHA // CYBER DEFENSE FUSION CENTER // SECURE SESSION</text>
 
-  <!-- Threat level widget -->
-  <rect x="1160" y="17" width="205" height="36" rx="18" fill="#FFFFFF" stroke="#C5DDE8"/>
-  <circle cx="1182" cy="35" r="5" fill="#10B981" filter="url(#glow)">
-    <animate attributeName="fill" values="#10B981;#F59E0B;#10B981;#EF4444;#10B981" dur="16s" repeatCount="indefinite"/>
+  <!-- Threat level widget: LOW → ELEVATED → LOW → HIGH → LOW -->
+  <rect x="1142" y="14" width="223" height="42" rx="21" fill="#FFFFFF" stroke="#C5DDE8"/>
+  <circle cx="1165" cy="35" r="6" fill="#10B981" filter="url(#glow)">
+    <animate attributeName="fill"
+      values="#10B981;#F59E0B;#10B981;#F97316;#10B981"
+      keyTimes="0;.20;.40;.60;.80" calcMode="discrete"
+      dur="20s" repeatCount="indefinite"/>
   </circle>
-  <text x="1198" y="32" class="tiny">THREAT LEVEL</text>
-  <text x="1198" y="46" class="label green">
-    <tspan>LOW</tspan>
-    <animate attributeName="fill" values="#059669;#D97706;#059669;#DC2626;#059669" dur="16s" repeatCount="indefinite"/>
-  </text>
+  <text x="1182" y="29" class="tiny">THREAT LEVEL</text>
+  <g class="label">
+    <text x="1182" y="47" fill="#059669">LOW
+      <animate attributeName="visibility" values="visible;hidden;visible;hidden;visible"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="1182" y="47" fill="#D97706" visibility="hidden">ELEVATED
+      <animate attributeName="visibility" values="hidden;visible;hidden;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="1182" y="47" fill="#EA580C" visibility="hidden">HIGH
+      <animate attributeName="visibility" values="hidden;hidden;hidden;visible;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+  </g>
 
   <path d="M28 62H1372" stroke="#BFD9E6"/>
 
@@ -116,12 +129,30 @@ Build what does not exist.
   <text x="220" y="486" text-anchor="middle" class="title">JAY NAGRECHA</text>
   <text x="220" y="518" text-anchor="middle" class="h">CYBER DEFENSE • PURPLE TEAM • BUILDER</text>
 
-  <!-- Rotating mission quote -->
+  <!-- Mission rotation: one directive is always visible -->
   <rect x="54" y="548" width="332" height="106" rx="13" fill="#F2F8FB" stroke="#C5DDE8"/>
   <text x="72" y="576" class="label">OPERATOR DIRECTIVE</text>
-  <g>
-    <text x="72" y="607" class="value">BUILD WHAT DOES NOT EXIST.</text>
-    <animate attributeName="opacity" values="1;1;0;0;0;0;0;1" keyTimes="0;.18;.22;.78;.82;.92;.96;1" dur="16s" repeatCount="indefinite"/>
+  <g class="value">
+    <text x="72" y="607">SIGNAL OVER NOISE.
+      <animate attributeName="visibility" values="visible;hidden;hidden;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="72" y="607" visibility="hidden">CONTEXT BEFORE CONFIDENCE.
+      <animate attributeName="visibility" values="hidden;visible;hidden;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="72" y="607" visibility="hidden">TRUST TELEMETRY.
+      <animate attributeName="visibility" values="hidden;hidden;visible;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="72" y="607" visibility="hidden">BUILD WHAT DOES NOT EXIST.
+      <animate attributeName="visibility" values="hidden;hidden;hidden;visible;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="72" y="607" visibility="hidden">AUTOMATE THE REPETITIVE.
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;visible"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
   </g>
   <text x="72" y="635" class="small green">SIGNAL • CONTEXT • VALIDATION • AUTOMATION</text>
 
@@ -138,11 +169,11 @@ Build what does not exist.
   <!-- Live-ish profile telemetry -->
   <text x="458" y="326" class="h violet">PROFILE TELEMETRY</text>
   <path d="M458 338H1344" stroke="#C6DCE7"/>
-  <text x="480" y="373" class="label">REPOSITORIES</text><text x="615" y="373" class="value">{{REPOSITORIES}}</text>
+  <text x="480" y="373" class="label">{{REPO_LABEL}}</text><text x="615" y="373" class="value">{{REPOSITORIES}}</text>
   <text x="730" y="373" class="label">FOLLOWERS</text><text x="840" y="373" class="value">{{FOLLOWERS}}</text>
   <text x="930" y="373" class="label">CONTRIBUTIONS</text><text x="1065" y="373" class="value">{{CONTRIBUTIONS}}</text>
   <text x="1175" y="373" class="label">TOTAL STARS</text><text x="1290" y="373" class="value">{{TOTAL_STARS}}</text>
-  <text x="458" y="414" class="tiny">Live telemetry • refreshed {{UPDATED_AT}} via GitHub Actions • latest: {{LATEST_REPO}}</text>
+  <text x="458" y="414" class="tiny">Live telemetry • {{REPO_SCOPE}} • refreshed {{UPDATED_AT}} • latest code repo: {{LATEST_REPO}}</text>
 
   <!-- Mid row: MITRE chain -->
   <rect x="432" y="466" width="458" height="218" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
@@ -195,19 +226,39 @@ Build what does not exist.
   <text x="1080" y="628" class="value violet">{{INVESTIGATION_ID}}</text>
   <text x="938" y="664" class="small green">STATUS: CORRELATING EVIDENCE</text>
 
-  <!-- Analyst console -->
+  <!-- Analyst console: persistent checklist plus looping terminal messages -->
   <rect x="30" y="706" width="860" height="176" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
   <text x="54" y="740" class="h">ANALYST.CONSOLE // LIVE SESSION</text>
   <path d="M54 754H864" stroke="#C6DCE7"/>
-  <text x="54" y="792" class="small cyan">root@fusion-core:~$ initialize analyst profile</text>
-  <text x="54" y="820" class="small green">[+] Detection engine loaded</text>
-  <text x="54" y="846" class="small green">[+] Threat intelligence synchronized</text>
-  <g clip-path="url(#terminalClip)">
-    <text x="54" y="872" class="small">[+] RepoTrace connected • Awaiting analyst input...</text>
-    <rect x="54" y="853" width="0" height="24" fill="#FFFFFF">
-      <animate attributeName="width" values="0;0;760;760;0" keyTimes="0;.12;.55;.88;1" dur="8s" repeatCount="indefinite"/>
-    </rect>
+  <text x="54" y="786" class="small cyan">root@fusion-core:~$ initializing...</text>
+  <text x="54" y="812" class="small green">✓ Detection   ✓ Threat Intel   ✓ Projects   ✓ Automation</text>
+
+  <g class="small">
+    <text x="54" y="850">loading analyst profile...
+      <animate attributeName="visibility" values="visible;hidden;hidden;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="54" y="850" visibility="hidden">Loading RepoTrace...
+      <animate attributeName="visibility" values="hidden;visible;hidden;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="54" y="850" visibility="hidden">Loading intelligence modules...
+      <animate attributeName="visibility" values="hidden;hidden;visible;hidden;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="54" y="850" visibility="hidden">Synchronization complete.
+      <animate attributeName="visibility" values="hidden;hidden;hidden;visible;hidden"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
+    <text x="54" y="850" visibility="hidden">System Ready. Awaiting analyst...
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;visible"
+        keyTimes="0;.20;.40;.60;.80" calcMode="discrete" dur="20s" repeatCount="indefinite"/>
+    </text>
   </g>
+  <rect x="54" y="858" width="9" height="16" fill="#0891B2">
+    <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="54;260;54;230;54;305;54" dur="20s" repeatCount="indefinite"/>
+  </rect>
 
   <!-- Operational timeline -->
   <rect x="912" y="706" width="458" height="176" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>

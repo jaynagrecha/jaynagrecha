@@ -26,7 +26,8 @@ OUTPUT_FILE = ROOT / "light.svg"
 
 USERNAME = "jaynagrecha"
 API = "https://api.github.com"
-TOKEN = os.getenv("GH_TOKEN") or os.getenv("GITHUB_TOKEN")
+PROFILE_TOKEN = os.getenv("PROFILE_TOKEN")
+TOKEN = PROFILE_TOKEN or os.getenv("GH_TOKEN") or os.getenv("GITHUB_TOKEN")
 
 INVESTIGATIONS = [
     ("Credential Access", "OS Credential Dumping", "T1003"),
@@ -114,7 +115,7 @@ def event_label(event: dict[str, Any]) -> str:
     payload = event.get("payload", {})
 
     if kind == "PushEvent":
-        count = len(payload.get("commits", []))
+        count = int(payload.get("size", 0)) or len(payload.get("commits", []))
         return f"{time} Pushed {count} commit{'s' if count != 1 else ''} to {repo}"
     if kind == "PullRequestEvent":
         action = payload.get("action", "updated")
@@ -134,16 +135,49 @@ def event_label(event: dict[str, Any]) -> str:
 def trim(text: str, limit: int = 52) -> str:
     return text if len(text) <= limit else text[: limit - 1] + "…"
 
+def owned_repo_count() -> tuple[int, str, str]:
+    """Return count, short label, and explanatory scope.
+
+    GITHUB_TOKEN can only see public repositories outside this profile repo.
+    A classic/fine-grained PAT stored as PROFILE_TOKEN can see all repositories
+    the token owner has permission to read, including private repositories.
+    """
+    if PROFILE_TOKEN:
+        query = """
+        query($login:String!) {
+          user(login:$login) {
+            repositories(ownerAffiliations: OWNER) { totalCount }
+          }
+        }
+        """
+        result = request_json(
+            "https://api.github.com/graphql",
+            method="POST",
+            body={"query": query, "variables": {"login": USERNAME}},
+        )
+        count = int(result["data"]["user"]["repositories"]["totalCount"])
+        return count, "OWNED REPOS", "all visible to PROFILE_TOKEN"
+
+    user = request_json(f"{API}/users/{USERNAME}")
+    return int(user.get("public_repos", 0)), "PUBLIC REPOS", "public repositories only"
+
+
 def collect_live_data() -> dict[str, Any]:
     user = request_json(f"{API}/users/{USERNAME}")
     repos = paginate(f"{API}/users/{USERNAME}/repos?type=owner&sort=pushed")
-    events = request_json(f"{API}/users/{USERNAME}/events/public?per_page=30")
+    events = request_json(f"{API}/users/{USERNAME}/events/public?per_page=50")
 
     non_forks = [r for r in repos if not r.get("fork")]
+    code_repos = [r for r in non_forks if r.get("name") != USERNAME]
     total_stars = sum(int(r.get("stargazers_count", 0)) for r in non_forks)
-    latest_repo = non_forks[0]["name"] if non_forks else "No public repositories"
+    latest_repo = code_repos[0]["name"] if code_repos else (non_forks[0]["name"] if non_forks else "No public repositories")
 
-    recent = [trim(event_label(e)) for e in events[:3]]
+    # Exclude the profile repo's own bot refreshes so the timeline shows real work.
+    meaningful_events = [
+        e for e in events
+        if str(e.get("repo", {}).get("name", "")).lower() != f"{USERNAME}/{USERNAME}".lower()
+    ]
+    recent = [trim(event_label(e)) for e in meaningful_events[:3]]
     while len(recent) < 3:
         recent.append("Awaiting new public GitHub activity")
 
@@ -151,9 +185,13 @@ def collect_live_data() -> dict[str, Any]:
     if contributions == 0 and DATA_FILE.exists():
         contributions = int(json.loads(DATA_FILE.read_text()).get("contributions", 0))
 
+    repo_count, repo_label, repo_scope = owned_repo_count()
+
     return {
         "username": USERNAME,
-        "repositories": int(user.get("public_repos", len(non_forks))),
+        "repositories": repo_count,
+        "repo_label": repo_label,
+        "repo_scope": repo_scope,
         "followers": int(user.get("followers", 0)),
         "contributions": contributions,
         "total_stars": total_stars,
@@ -161,6 +199,7 @@ def collect_live_data() -> dict[str, Any]:
         "updated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "recent_events": recent,
     }
+
 
 def load_snapshot() -> dict[str, Any]:
     if DATA_FILE.exists():
@@ -178,6 +217,8 @@ def render(data: dict[str, Any]) -> None:
 
     values = {
         "REPOSITORIES": str(data.get("repositories", 0)),
+        "REPO_LABEL": str(data.get("repo_label", "PUBLIC REPOS")),
+        "REPO_SCOPE": str(data.get("repo_scope", "public repositories only")),
         "FOLLOWERS": str(data.get("followers", 0)),
         "CONTRIBUTIONS": str(data.get("contributions", 0)),
         "TOTAL_STARS": str(data.get("total_stars", 0)),
