@@ -169,11 +169,11 @@ Build what does not exist.
   <!-- Live-ish profile telemetry -->
   <text x="458" y="326" class="h violet">PROFILE TELEMETRY</text>
   <path d="M458 338H1344" stroke="#C6DCE7"/>
-  <text x="480" y="373" class="label">PUBLIC REPOS</text><text x="615" y="373" class="value">14</text>
+  <text x="480" y="373" class="label">PUBLIC REPOS</text><text x="615" y="373" class="value">15</text>
   <text x="730" y="373" class="label">FOLLOWERS</text><text x="840" y="373" class="value">2</text>
-  <text x="930" y="373" class="label">CONTRIBUTIONS</text><text x="1065" y="373" class="value">172</text>
+  <text x="930" y="373" class="label">CONTRIBUTIONS</text><text x="1065" y="373" class="value">177</text>
   <text x="1175" y="373" class="label">TOTAL STARS</text><text x="1290" y="373" class="value">1</text>
-  <text x="458" y="414" class="tiny">Live telemetry • public repositories only • refreshed 2026-07-14 19:43 UTC • latest code repo: Project-Rooms</text>
+  <text x="458" y="414" class="tiny">Live telemetry • public repositories only • refreshed 2026-07-15 03:36 UTC • latest code repo: Vaultline</text>
 
   <!-- Mid row: MITRE chain -->
   <rect x="432" y="466" width="458" height="218" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
@@ -219,11 +219,11 @@ Build what does not exist.
   <text x="938" y="500" class="h">CURRENT INVESTIGATION</text>
   <path d="M938 514H1344" stroke="#C6DCE7"/>
   <text x="938" y="552" class="label">TACTIC</text>
-  <text x="1080" y="552" class="value">Credential Access</text>
+  <text x="1080" y="552" class="value">Defense Evasion</text>
   <text x="938" y="590" class="label">TECHNIQUE</text>
-  <text x="1080" y="590" class="value">Kerberoasting</text>
+  <text x="1080" y="590" class="value">Signed Binary Proxy Execution</text>
   <text x="938" y="628" class="label">MITRE ID</text>
-  <text x="1080" y="628" class="value violet">T1558.003</text>
+  <text x="1080" y="628" class="value violet">T1218</text>
   <text x="938" y="664" class="small green">STATUS: CORRELATING EVIDENCE</text>
 
   <!-- Analyst console: persistent checklist plus looping terminal messages -->
@@ -264,9 +264,9 @@ Build what does not exist.
   <rect x="912" y="706" width="458" height="176" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
   <text x="938" y="740" class="h">OPERATIONAL TIMELINE</text>
   <path d="M938 754H1344" stroke="#C6DCE7"/>
-  <circle cx="948" cy="790" r="5" fill="#10B981"/><text x="966" y="795" class="small">22:13 Created branch in NetraBharat</text>
-  <circle cx="948" cy="820" r="5" fill="#06B6D4"/><text x="966" y="825" class="small">16:36 Pull request merged in RepoTriage</text>
-  <circle cx="948" cy="850" r="5" fill="#8B5CF6"/><text x="966" y="855" class="small">16:36 Pull request opened in RepoTriage</text>
+  <circle cx="948" cy="790" r="5" fill="#10B981"/><text x="966" y="795" class="small">00:03 Pushed 0 commits to Vaultline</text>
+  <circle cx="948" cy="820" r="5" fill="#06B6D4"/><text x="966" y="825" class="small">00:03 Pushed 0 commits to Vaultline</text>
+  <circle cx="948" cy="850" r="5" fill="#8B5CF6"/><text x="966" y="855" class="small">23:41 Pushed 0 commits to Vaultline</text>
 
   <!-- Project status strip -->
   <rect x="30" y="904" width="1340" height="86" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
