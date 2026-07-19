@@ -173,7 +173,7 @@ Build what does not exist.
   <text x="730" y="373" class="label">FOLLOWERS</text><text x="840" y="373" class="value">2</text>
   <text x="930" y="373" class="label">CONTRIBUTIONS</text><text x="1065" y="373" class="value">181</text>
   <text x="1175" y="373" class="label">TOTAL STARS</text><text x="1290" y="373" class="value">1</text>
-  <text x="458" y="414" class="tiny">Live telemetry • public repositories only • refreshed 2026-07-18 19:32 UTC • latest code repo: RepoTrace</text>
+  <text x="458" y="414" class="tiny">Live telemetry • public repositories only • refreshed 2026-07-19 03:55 UTC • latest code repo: RepoTrace</text>
 
   <!-- Mid row: MITRE chain -->
   <rect x="432" y="466" width="458" height="218" rx="20" fill="#FFFFFF" stroke="#BDD8E6" filter="url(#shadow)"/>
@@ -219,11 +219,11 @@ Build what does not exist.
   <text x="938" y="500" class="h">CURRENT INVESTIGATION</text>
   <path d="M938 514H1344" stroke="#C6DCE7"/>
   <text x="938" y="552" class="label">TACTIC</text>
-  <text x="1080" y="552" class="value">Lateral Movement</text>
+  <text x="1080" y="552" class="value">Credential Access</text>
   <text x="938" y="590" class="label">TECHNIQUE</text>
-  <text x="1080" y="590" class="value">Remote Services</text>
+  <text x="1080" y="590" class="value">OS Credential Dumping</text>
   <text x="938" y="628" class="label">MITRE ID</text>
-  <text x="1080" y="628" class="value violet">T1021</text>
+  <text x="1080" y="628" class="value violet">T1003</text>
   <text x="938" y="664" class="small green">STATUS: CORRELATING EVIDENCE</text>
 
   <!-- Analyst console: persistent checklist plus looping terminal messages -->
