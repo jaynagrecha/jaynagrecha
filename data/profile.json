@@ -4,13 +4,13 @@
   "repo_label": "PUBLIC REPOS",
   "repo_scope": "public repositories only",
   "followers": 2,
-  "contributions": 325,
+  "contributions": 331,
   "total_stars": 1,
-  "latest_repo": "VantaCrawl",
-  "updated_at": "2026-07-23 08:44 UTC",
+  "latest_repo": "RepoTriage",
+  "updated_at": "2026-07-23 14:33 UTC",
   "recent_events": [
-    "05:35 Pull request merged in VantaCrawl",
-    "05:35 Pull request opened in VantaCrawl",
-    "05:08 Pull request merged in VantaCrawl"
+    "13:28 Pull request opened in RepoTriage",
+    "13:22 Pull request opened in RepoTriage",
+    "12:43 Pull request opened in RepoTriage"
   ]
 }
